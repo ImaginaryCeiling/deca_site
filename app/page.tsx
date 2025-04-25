@@ -1,30 +1,44 @@
-import type React from "react"
+"use client"
 import Image from "next/image"
 import { BarChart2, Users, LineChart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip as ChartTooltip } from "recharts"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
-// Replace the existing ChartContainer and ChartTooltipContent components with these:
-const ChartContainer = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>
-}
-
-const ChartTooltipContent = ({ active, payload }: any) => {
+// Simple tooltip component for the charts
+const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white border rounded-md shadow-md p-2">
         <p className="font-bold">{`${payload[0].name}`}</p>
-        <p className="text-gray-700">{`Value: $${payload[0].value}`}</p>
+        <p className="text-gray-700">{`Value: $${payload[0].value.toLocaleString()}`}</p>
       </div>
     )
   }
   return null
 }
 
+// Define the green color palette
+const GREEN_COLORS = ["#2da44e", "#7ac96f", "#a3d9a5", "#155e27"]
+
 export default function Home() {
+  // Data for one-time costs pie chart
+  const oneTimeCostsData = [
+    { name: "CTPulse Development", value: 50000 },
+    { name: "CTProcess Development", value: 35000 },
+    { name: "CTPerformance Development", value: 20000 },
+    { name: "Hardware & Infrastructure", value: 40100 },
+  ]
+
+  // Data for recurring costs pie chart
+  const recurringCostsData = [
+    { name: "Cloud Services", value: 30000 },
+    { name: "OneFootGo Licensing", value: 25000 },
+    { name: "Maintenance & Updates", value: 10000 },
+    { name: "Miscellaneous", value: 5000 },
+  ]
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -46,7 +60,7 @@ export default function Home() {
               <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
                 <a href="#research">View Research Methods</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
                 <a
                   href="https://deca2025.s3.us-east-1.amazonaws.com/SEOR_NC_Chauhan_Nawal_WE.pdf?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHbFvGx0C1txFbHIKg%2FH3fHNzXOL8EVvcz%2F4y5PMEp%2FyAiEAjI5pyaU7HXynlzE8CPZkSsjpRwF6gCSuUMsNKeqbnksquQMILhAAGgwwMTA1MjYyODE4MDIiDAMyA%2BeFkElATQl3CCqWA28pBd3u6rNq8XXyERbOv2CHs77Fw9UpX1oIZwE5elOr6yVZ93Us8UyMc8Lm1Zbz%2BApyxMvUSHewnqs2%2FH89wQn8YFjy8JDBC1XePfoM33r55qJ3IkLaBLDr2Qp5znhL2mqdQzq78w3J8TOUHw3POVHuB6GrHMAvNaj9qB4%2BHNbdujh7M%2BGgkUnPg1RjJd%2B3UhIZ%2FH3YQtmkicUz6%2BGP2ltxo9tS4rhN%2FKTcqkhAMuCys5%2BhNHOvrGkvuHhf2wlp%2B7nstFlTfqmLYZHLAom2sFdWq3CS8Ldg%2Bp0xqk%2BZ8t8Tn%2FdLZNriKbfTMVcbyuZ%2BNeEpYGoexEZzEn3I4I8KSIh3TBD4RwhdKpgdDDq5pD232WfVEx7AC1N8iGXG0vLXDXhf4AB4mb19vnWBPe%2B8rTqsgkKGZqZESBM3HlB0HXkGiDe%2FNKOY2gw%2F8RHtMumqH63bI%2BSi6NMxPS1vFd%2BgqaG%2FNqxTDyVJmqxT6cTenk4uR9BHT6hEhl2pfcazMT26P%2Fawwj8pMaVNaBCQZYuT7WSSayfNt%2BowqI2uwAY63gIsYtXbLm9rr5MClsHv4tOcxFDUSdJJoyHqebFwhPAWdPloACxQiWMHsdeZUHTluh5VZRjjsP6Ha1XElAXVrVL55EDUS%2FL262wJgb%2F%2BIcZ3WbgeSoqYhGuzx%2FV47zJC13eX8QW69uI7rF9cDNxcU5P20yHU%2Bq5%2B7Ug22%2FgzBwdlQ1FxlpXSu27SKJe%2BGDnz7PgAbTSg815r3KbzPR4jwMkxZcYgfJ%2BDx5dlzY2TU6z0%2BerhMFwHv779L%2B9%2Fos0WFFVmF35z4JznMe0dYAMWig25tNEQ4DFCZ0F7zrGTyVC4bwTHoPsisGe6cXLIeSdVajkSlbO%2BrfPiB3G%2B1Si0ggj4KWoSvlV9m864N83gleDI7XoE8IU5F3oxSrfaCHo3eeeIVlNW5njAP%2Fxa91qw7%2B7s2byRiigph31uunaUNty1ALC2ahRh4EshSdjxFG5hPDGgc80U8vXmkcIttBYVKg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQE43KKBFEBBUATQ2%2F20250425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250425T130706Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=314ca0e858ecba81dec922814c9bd2e75f83318a0314147c82c493c746d872ad"
                   target="_blank"
@@ -750,7 +764,6 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </TabsContent>
-
               <TabsContent value="ctperformance">
                 <Card>
                   <CardHeader>
@@ -1091,69 +1104,87 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-lg font-semibold mb-4 text-center">One-Time Costs Distribution</h3>
-
-                    <div className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <PieChart>
-                          <Pie
-                            data={[
-                              { name: "CTPulse Development", value: 50000 },
-                              { name: "CTProcess Development", value: 35000 },
-                              { name: "CTPerformance Development", value: 20000 },
-                              { name: "Hardware & Infrastructure", value: 40100 },
-                            ]}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            outerRadius={80}
-                            fill="#8884d8"
-                            dataKey="value"
-                          >
-                            <Cell fill="#2da44e" /> {/* Bright green */}
-                            <Cell fill="#7ac96f" /> {/* Medium green */}
-                            <Cell fill="#a3d9a5" /> {/* Light green */}
-                            <Cell fill="#155e27" /> {/* Dark green */}
-                          </Pie>
-                          <ChartTooltip content={<ChartTooltipContent />} />
-                          <Legend />
-                        </PieChart>
-                      </ResponsiveContainer>
+                    <div className="space-y-4">
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">CTPulse Development ($50,000)</span>
+                          <span className="text-sm font-medium">34.5%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "34.5%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">CTProcess Development ($35,000)</span>
+                          <span className="text-sm font-medium">24.1%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "24.1%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">CTPerformance Development ($20,000)</span>
+                          <span className="text-sm font-medium">13.8%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "13.8%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">Hardware & Infrastructure ($40,100)</span>
+                          <span className="text-sm font-medium">27.6%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "27.6%" }}></div>
+                        </div>
+                      </div>
                     </div>
-
                     <div className="mt-4 text-center text-sm text-gray-500">Total One-Time Costs: $145,100</div>
                   </div>
 
                   <div>
                     <h3 className="text-lg font-semibold mb-4 text-center">Annual Recurring Costs Distribution</h3>
-
-                    <div className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <PieChart>
-                          <Pie
-                            data={[
-                              { name: "Cloud Services", value: 30000 },
-                              { name: "OneFootGo Licensing", value: 25000 },
-                              { name: "Maintenance & Updates", value: 10000 },
-                              { name: "Miscellaneous", value: 5000 },
-                            ]}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            outerRadius={80}
-                            fill="#8884d8"
-                            dataKey="value"
-                          >
-                            <Cell fill="#2da44e" /> {/* Bright green */}
-                            <Cell fill="#7ac96f" /> {/* Medium green */}
-                            <Cell fill="#a3d9a5" /> {/* Light green */}
-                            <Cell fill="#155e27" /> {/* Dark green */}
-                          </Pie>
-                          <ChartTooltip content={<ChartTooltipContent />} />
-                          <Legend />
-                        </PieChart>
-                      </ResponsiveContainer>
+                    <div className="space-y-4">
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">Cloud Services ($30,000)</span>
+                          <span className="text-sm font-medium">42.9%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "42.9%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">OneFootGo Licensing ($25,000)</span>
+                          <span className="text-sm font-medium">35.7%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "35.7%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">Maintenance & Updates ($10,000)</span>
+                          <span className="text-sm font-medium">14.3%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "14.3%" }}></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-sm font-medium">Miscellaneous ($5,000)</span>
+                          <span className="text-sm font-medium">7.1%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div className="bg-green-600 h-2.5 rounded-full" style={{ width: "7.1%" }}></div>
+                        </div>
+                      </div>
                     </div>
-
                     <div className="mt-4 text-center text-sm text-gray-500">Total Annual Recurring Costs: $70,000</div>
                   </div>
                 </div>
