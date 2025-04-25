@@ -80,10 +80,10 @@ export default function StrategicPlanPage() {
                       </CardContent>
                     </Card>
 
-                    <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
+                    <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
                       <CardHeader>
                         <CardTitle className="flex items-center">
-                          <LineChart className="h-6 w-6 text-purple-600 mr-2" />
+                          <LineChart className="h-6 w-6 text-green-600 mr-2" />
                           CTPerformance
                         </CardTitle>
                         <CardDescription>Player Development</CardDescription>
@@ -388,7 +388,7 @@ export default function StrategicPlanPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <LineChart className="h-6 w-6 text-purple-600 mr-2" />
+                    <LineChart className="h-6 w-6 text-green-600 mr-2" />
                     CTPerformance
                   </CardTitle>
                   <CardDescription>Player Development Enhancement</CardDescription>
@@ -402,7 +402,7 @@ export default function StrategicPlanPage() {
 
                   <h3 className="text-xl font-bold mb-4">Key Features</h3>
                   <div className="space-y-4 mb-6">
-                    <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                       <h4 className="font-bold text-lg mb-2">AI Powered Video Analysis</h4>
                       <p className="mb-2">
                         Advanced video analysis that identifies patterns and insights that might be missed by even the
@@ -419,7 +419,7 @@ export default function StrategicPlanPage() {
                       </p>
                     </div>
 
-                    <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                       <h4 className="font-bold text-lg mb-2">Player Heat Map</h4>
                       <p className="mb-2">
                         Detailed analysis of player court coverage and positioning to identify strengths and weaknesses.
@@ -436,7 +436,7 @@ export default function StrategicPlanPage() {
                       </p>
                     </div>
 
-                    <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                       <h4 className="font-bold text-lg mb-2">Shot Development Overview</h4>
                       <p className="mb-2">
                         Comprehensive analysis of shot performance with natural language query capabilities for coaches.

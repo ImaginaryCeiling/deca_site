@@ -45,7 +45,7 @@ export default function Home() {
       <section className="relative py-20">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/cary-tennis-park-aerial.png"
+            src="https://www.timmons.com/wp-content/uploads/2020/01/web_cary-tennis-park-110222-image-seq-019.jpg"
             alt="Aerial view of Cary Tennis Park"
             fill
             className="object-cover brightness-50"
@@ -53,16 +53,17 @@ export default function Home() {
           />
         </div>
         <div className="container relative z-10 mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center text-white">
+          <div className="max-w-3xl mx-auto text-center text-green-100">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Cary Tennis Park</h1>
-            <p className="text-xl mb-8">Sports and Entertainment Marketing Operations Research</p>
+            <p className="text-xl ">Panther Creek High School DECA</p>
+            <p className="text-lg mb-8"> Arnav Chauhan & Arnav Nawal </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
-                <a href="#research">View Research Methods</a>
+                <a href="#research">View Presentation</a>
               </Button>
               <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
                 <a
-                  href="https://deca2025.s3.us-east-1.amazonaws.com/SEOR_NC_Chauhan_Nawal_WE.pdf?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHbFvGx0C1txFbHIKg%2FH3fHNzXOL8EVvcz%2F4y5PMEp%2FyAiEAjI5pyaU7HXynlzE8CPZkSsjpRwF6gCSuUMsNKeqbnksquQMILhAAGgwwMTA1MjYyODE4MDIiDAMyA%2BeFkElATQl3CCqWA28pBd3u6rNq8XXyERbOv2CHs77Fw9UpX1oIZwE5elOr6yVZ93Us8UyMc8Lm1Zbz%2BApyxMvUSHewnqs2%2FH89wQn8YFjy8JDBC1XePfoM33r55qJ3IkLaBLDr2Qp5znhL2mqdQzq78w3J8TOUHw3POVHuB6GrHMAvNaj9qB4%2BHNbdujh7M%2BGgkUnPg1RjJd%2B3UhIZ%2FH3YQtmkicUz6%2BGP2ltxo9tS4rhN%2FKTcqkhAMuCys5%2BhNHOvrGkvuHhf2wlp%2B7nstFlTfqmLYZHLAom2sFdWq3CS8Ldg%2Bp0xqk%2BZ8t8Tn%2FdLZNriKbfTMVcbyuZ%2BNeEpYGoexEZzEn3I4I8KSIh3TBD4RwhdKpgdDDq5pD232WfVEx7AC1N8iGXG0vLXDXhf4AB4mb19vnWBPe%2B8rTqsgkKGZqZESBM3HlB0HXkGiDe%2FNKOY2gw%2F8RHtMumqH63bI%2BSi6NMxPS1vFd%2BgqaG%2FNqxTDyVJmqxT6cTenk4uR9BHT6hEhl2pfcazMT26P%2Fawwj8pMaVNaBCQZYuT7WSSayfNt%2BowqI2uwAY63gIsYtXbLm9rr5MClsHv4tOcxFDUSdJJoyHqebFwhPAWdPloACxQiWMHsdeZUHTluh5VZRjjsP6Ha1XElAXVrVL55EDUS%2FL262wJgb%2F%2BIcZ3WbgeSoqYhGuzx%2FV47zJC13eX8QW69uI7rF9cDNxcU5P20yHU%2Bq5%2B7Ug22%2FgzBwdlQ1FxlpXSu27SKJe%2BGDnz7PgAbTSg815r3KbzPR4jwMkxZcYgfJ%2BDx5dlzY2TU6z0%2BerhMFwHv779L%2B9%2Fos0WFFVmF35z4JznMe0dYAMWig25tNEQ4DFCZ0F7zrGTyVC4bwTHoPsisGe6cXLIeSdVajkSlbO%2BrfPiB3G%2B1Si0ggj4KWoSvlV9m864N83gleDI7XoE8IU5F3oxSrfaCHo3eeeIVlNW5njAP%2Fxa91qw7%2B7s2byRiigph31uunaUNty1ALC2ahRh4EshSdjxFG5hPDGgc80U8vXmkcIttBYVKg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQE43KKBFEBBUATQ2%2F20250425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250425T130706Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=314ca0e858ecba81dec922814c9bd2e75f83318a0314147c82c493c746d872ad"
+                  href="https://deca2025.s3.us-east-1.amazonaws.com/SEOR_NC_Chauhan_Nawal_WE.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -224,11 +225,19 @@ export default function Home() {
                           <span>Personalized experiences are proven to draw fans' attention</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="bg-ace text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                          <span className="bg-green-50 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
                             Conclusion
                           </span>
                           <span>
-                            Fans need better communication strategies and tailored recommendations to increase retention
+                          Fans need better communication strategies during large events.
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="bg-green-50 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                            Conclusion
+                          </span>
+                          <span>
+                          Tailored recommendations delivered straight to fans will increase retention.
                           </span>
                         </li>
                       </ul>
@@ -306,12 +315,19 @@ export default function Home() {
                           <span>Resources are inefficiently managed, especially at large events</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="bg-ace text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                          <span className="bg-green-50 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
                             Conclusion
                           </span>
                           <span>
-                            Spacing bookings correctly and tracking resources 24/7 will minimize revenue loss and
-                            inefficiencies
+                          Spacing bookings correctly is essential to minimize revenue loss
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="bg-green-50 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                            Conclusion
+                          </span>
+                          <span>
+                          Tracking resources 24/7 will help prevent operational inefficiencies.
                           </span>
                         </li>
                       </ul>
@@ -324,7 +340,7 @@ export default function Home() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <LineChart className="h-6 w-6 text-purple-600 mr-2" />
+                      <LineChart className="h-6 w-6 text-green-600 mr-2" />
                       Player Development Research
                     </CardTitle>
                     <CardDescription>
@@ -333,7 +349,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4 mb-6">
-                      <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                         <h4 className="font-bold text-lg mb-2">OneFootGo Consultation</h4>
                         <p className="mb-2">
                           We consulted with OneFootGo, a leading provider of AI-powered tennis coaching technology.
@@ -349,7 +365,7 @@ export default function Home() {
                         </p>
                       </div>
 
-                      <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                         <h4 className="font-bold text-lg mb-2">Player Survey</h4>
                         <p className="mb-2">
                           We surveyed 75 players who regularly train at CTP, ranging from juniors to professionals.
@@ -365,7 +381,7 @@ export default function Home() {
                         </p>
                       </div>
 
-                      <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                         <h4 className="font-bold text-lg mb-2">Player & Coach Interviews</h4>
                         <p className="mb-2">We conducted in-depth interviews with 10 players and 5 coaches at CTP.</p>
                         <p>
@@ -379,7 +395,7 @@ export default function Home() {
                         </p>
                       </div>
 
-                      <div className="p-4 bg-purple-50 rounded-lg border border-purple-200">
+                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                         <h4 className="font-bold text-lg mb-2">Online Research</h4>
                         <p className="mb-2">
                           We researched the latest trends and technologies in tennis coaching and player development.
@@ -411,6 +427,12 @@ export default function Home() {
                             Conclusion
                           </span>
                           <span>Top players need every single edge in their training to stay at the top</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="bg-ace text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                            Conclusion
+                          </span>
+                          <span>Investment in advanced player development technology will keep players at their best.</span>
                         </li>
                       </ul>
                     </div>
@@ -509,10 +531,10 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
+              <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <LineChart className="h-6 w-6 text-purple-600 mr-2" />
+                    <LineChart className="h-6 w-6 text-green-600 mr-2" />
                     CTPerformance
                   </CardTitle>
                   <CardDescription>Player Development</CardDescription>
@@ -525,19 +547,19 @@ export default function Home() {
                       <AccordionContent>
                         <ul className="space-y-2">
                           <li className="flex items-start">
-                            <span className="bg-purple-100 text-purple-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                            <span className="bg-green-100 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
                               Feature
                             </span>
                             <span>Player Heat Map</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="bg-purple-100 text-purple-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                            <span className="bg-green-100 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
                               Feature
                             </span>
                             <span>AI Powered Video Analysis</span>
                           </li>
                           <li className="flex items-start">
-                            <span className="bg-purple-100 text-purple-800 font-medium mr-2 px-2.5 py-0.5 rounded">
+                            <span className="bg-green-100 text-green-800 font-medium mr-2 px-2.5 py-0.5 rounded">
                               Feature
                             </span>
                             <span>Shot Development Overview</span>
@@ -768,7 +790,7 @@ export default function Home() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <LineChart className="h-6 w-6 text-purple-600 mr-2" />
+                      <LineChart className="h-6 w-6 text-green-600 mr-2" />
                       CTPerformance
                     </CardTitle>
                     <CardDescription>Player Development Enhancement</CardDescription>
@@ -929,7 +951,7 @@ export default function Home() {
                 <h4 className="text-lg font-semibold mb-4">Detailed Implementation Phases</h4>
                 <div className="bg-white rounded-lg overflow-hidden border border-gray-200">
                   <img
-                    src="/ctplan-timeline.png"
+                    src="https://deca2025.s3.us-east-1.amazonaws.com/SCR-20250425-nkai-2.png"
                     alt="CTPlan Detailed Implementation Timeline"
                     className="w-full h-auto"
                   />
@@ -1354,7 +1376,7 @@ export default function Home() {
       {/* Footer Section */}
       <footer className="py-6 bg-gray-800 text-white text-center">
         <p className="text-sm">
-          &copy; 2025 Sports and Entertainment Marketing Operations Research. All rights reserved.
+          &copy; 2025 Panther Creek High School DECA. All rights reserved.
         </p>
       </footer>
     </div>
